@@ -3,6 +3,11 @@
   flex-direction: column;
   padding: 40rpx;
 }
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
 .log-item {
   margin: 10rpx;
 }
