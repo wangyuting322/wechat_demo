@@ -10,5 +10,18 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "主页",
+      "iconPath": "/static/images/tabs/tab-my.png",
+      "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "iconPath": "/static/images/tabs/tab-my.png",
+      "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+    }]
+  }
 }

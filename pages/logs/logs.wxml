@@ -6,8 +6,10 @@
 
   <text catchtap="handleChild">点我</text>
 </view>
-<button bindtap="handleClick">dd</button>
-  <block wx:for="{{logs}}" wx:for-item="log">
+
+<button bindtap="handleLogin">调登录接口</button>
+<button bindtap="handlePage">去wang页面</button>
+  <!-- <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+  </block> -->
 </view>

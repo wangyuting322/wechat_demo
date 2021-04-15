@@ -17,10 +17,10 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    wx.navigateTo({
-      // url: '../logs/logs'
-      url: '/pages/logs/logs'
-    })
+    // wx.navigateTo({
+    //   // url: '../logs/logs'
+    //   url: '/pages/logs/logs'
+    // })
     // wx.redirectTo({
     //   url: '/pages/logs/logs',
     // })

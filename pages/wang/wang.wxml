@@ -1,0 +1,20 @@
+<!--pages/wang/wang.wxml-->
+<text>pages/wang/wang.wxml</text>
+<view>
+  <swiper indicator-dots="">
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/static/images/nvsheng.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <block  wx:for="{{deptList}}">
+    <view>
+      {{index}}: {{item.deptName}}
+    </view>
+    <view>
+      {{index}}: {{item.deptId}}
+    </view>
+  </block>
+</view>
