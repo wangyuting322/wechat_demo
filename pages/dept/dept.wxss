@@ -1,0 +1,65 @@
+/* pages/wang/wang.wxss */
+
+.scroll-content {
+  height: 90vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 10rpx;
+}
+
+.left {
+  flex-grow: 0;
+  font-size: 24px;
+  margin-right: 15rpx;
+  background-color: burlywood;
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+}
+
+.middle {
+  padding: 5rpx;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  border-bottom: 3rpx burlywood dashed;
+}
+
+.deptName,
+.deptId {
+  margin: 10rpx;
+}
+
+.right {
+  flex-grow: 0;
+}
+
+.controller {
+  position: fixed;
+  bottom: 5rpx;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.controller text {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 50%;
+  margin: 20rpx;
+}
+
+.has-no-data {
+  background-color: rgba(0,0,0,.1);
+  display: block;
+  text-align: center;
+  /* border-radius: 20rpx 20rpx 0rpx 0rpx; */
+}

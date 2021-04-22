@@ -1,12 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
+ <view class="userinfo">
+   <!-- 
+     用于展示微信公开的数据
+  https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html
+  -->
     <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>
     </block>
+    <!-- 获取用户详情 -->
     <block wx:elif="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
       <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -17,8 +22,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <button open-type="getUserInfo"  bindgetuserinfo="getUserInfo">dd</button>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
+  </view> 
 </view>

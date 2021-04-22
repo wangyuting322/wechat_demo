@@ -1,0 +1,30 @@
+<!--pages/wang/wang.wxml-->
+<view>
+<mp-searchbar placeholder='请输入部门名称' bindinput='search'></mp-searchbar>
+  <scroll-view id="scrollview" class="scroll-content" scroll-y refresher-enabled enhanced='{{true}}' lower-threshold='{{50}}' refresher-threshold='{{60}}' topNum="{{topNum}}"
+    refresher-triggered='{{isRefresh}}' bindscrolltolower='getMore' 
+    bindrefresherrefresh='refresh'
+    bindrefresherrestore='stopRefresh'>
+    <block wx:for="{{deptList}}" wx:key='deptId'>
+      <view class="wrapper">
+        <view class="left">
+          <text>{{index+1}}</text>
+        </view>
+        <view class="middle">
+          <view class="deptName">
+            部门名称：{{item.deptName}}
+          </view>
+          <view class="deptId">
+            部门Id：{{item.deptId}}
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="has-no-data" hidden="{{deptList.length===total}}">暂无更多数据</view>
+  </scroll-view>
+  <!-- 控制栏图标 -->
+  <view class="controller">
+    <!-- <text catchtap="totop" class="fa fa-chevron-up"></text> -->
+    <text catchtap="addDept" class="fa fa-plus primary-color"></text>
+  </view>
+</view>

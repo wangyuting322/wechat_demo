@@ -1,5 +1,8 @@
 // logs.js
 const util = require("../../utils/util.js")
+import {
+  request
+} from '../../utils/request.js'
 
 Page({
   /**
@@ -15,28 +18,37 @@ Page({
   handleChild() {
     console.log("kid")
   },
+  /**
+   * 登录事件（保存token至缓存）
+   */
   handleLogin() {
     // 登录接口
-    wx.request({
-      url: "http://121.4dfsd/system/login",
-      // url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
-      // method:"GET",
+    request({
+      url: '/system/login',
       method: "POST",
       data: {
         username: "admin",
         password: "admin123",
       },
-      success: (res) => {
-        console.log(res, 22222)
-        try {
-          wx.setStorageSync("userInfo", res.data)
-        } catch (e) {}
-      },
+    }).then(res => {
+      try {
+        // 存储token
+        wx.setStorageSync("token", res.data)
+        // 前往部门页面
+        this.handlePage()
+      } catch (e) {
+        console.log(e);
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: `登录失败！！${err.message}`,
+      })
+      console.log(err);
     })
   },
   handlePage() {
     wx.navigateTo({
-      url: "/pages/wang/wang",
+      url: "/pages/dept/dept",
     })
   },
   /**

@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.0",
+  "libVersion": "2.16.1",
   "appid": "wx2bc61b36a01e8eef",
   "projectname": "wechat_demo",
   "debugOptions": {

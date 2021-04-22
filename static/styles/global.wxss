@@ -1,0 +1,12 @@
+@import './colors.wxss';
+@import './size.wxss';
+.button{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  height:70rpx;
+  width: 100rpx;
+  text-align: center;
+  line-height: 25rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+}

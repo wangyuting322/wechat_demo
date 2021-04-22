@@ -1,0 +1,16 @@
+.primary-color {
+  background-color: #1890ff;
+  color:white;
+}
+
+.title-color {
+  color: #183c48;
+}
+
+.text-color {
+  color: #19334d;
+}
+
+.border {
+  border: 3rpx solid rgba(0, 0, 0, 0.2);
+}

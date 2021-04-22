@@ -1,27 +1,36 @@
 {
-  "pages":[
+  "pages": [
+    "pages/dept/dept",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/login/login",
+    "pages/addDept/addDept"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小王的demo",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath": "/static/images/tabs/tab-my.png",
-      "selectedIconPath": "/static/images/tabs/tab-my-current.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "日志",
-      "iconPath": "/static/images/tabs/tab-my.png",
-      "selectedIconPath": "/static/images/tabs/tab-my-current.png"
-    }]
+    "selectedColor": "#FA436A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "登录",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      }
+    ]
   }
 }

@@ -1,0 +1,13 @@
+
+.border-radius-size {
+ border-radius: 5rpx;
+}
+.title-size{
+  font-size: 22rpx;
+}
+.text-size{
+  font-size: 16rpx;
+}
+.tips-size{
+  font-size: 14rpx;
+}

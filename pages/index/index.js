@@ -2,6 +2,7 @@
 // 获取应用实例
 const app = getApp()
 
+
 // 注册当前页面的实例
 Page({
   /**
@@ -17,13 +18,18 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    // wx.navigateTo({
-    //   // url: '../logs/logs'
-    //   url: '/pages/logs/logs'
-    // })
-    // wx.redirectTo({
-    //   url: '/pages/logs/logs',
-    // })
+    // 非tab页面的跳转（不会销毁前面的页面，会有记录）
+    wx.navigateTo({
+      url: '/pages/logs/logs'
+    })
+    // 非tab页面的跳转（会销毁前面的页面，只能回到主页）
+    wx.redirectTo({
+      url: '/pages/logs/logs',
+    })
+    // tab页面跳转
+    wx.switchTab({
+      url: '/pages/logs/logs',
+    })
   },
   onLoad() {
     if (wx.getUserProfile) {
@@ -49,10 +55,10 @@ console.log('obunload');
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res)
+        console.log(res,55)
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          // hasUserInfo: true
         })
       }
     })

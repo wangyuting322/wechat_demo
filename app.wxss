@@ -1,4 +1,10 @@
 /**app.wxss 公共样式**/
+/* fontawesome 图标字体 */
+@import '/static/iconfont/font-awesome.wxss';
+@import '/static/iconfont/stylesheet.wxss';
+/* 公共样式 */
+@import '/static/styles/global.wxss';
+
 page{
   height: 100%;
 }
