@@ -1,5 +1,5 @@
 .primary-color {
-  background-color: #1890ff;
+  background-color: #07C160;
   color:white;
 }
 
@@ -12,5 +12,5 @@
 }
 
 .border {
-  border: 3rpx solid rgba(0, 0, 0, 0.2);
+  border: 3rpx solid rgba(0, 0, 0, 0.1);
 }

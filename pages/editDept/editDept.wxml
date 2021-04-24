@@ -10,7 +10,7 @@
       </view>
     </mp-cell>
     <mp-cell prop="deptName" title="部门名称">
-      <input data-field="deptName" class="weui-input" placeholder="请输入部门名称"  bindinput="changeInput" />
+      <input data-field="deptName" value='{{formData.deptName}}' class="weui-input" placeholder="请输入部门名称"  bindinput="changeInput" />
     </mp-cell>
     <mp-cell prop="orderNum" title="显示排序">
       <input data-field="orderNum" type="number" class="weui-input" placeholder="请输入显示排序" value='{{formData.orderNum}}' bindinput="changeInput" />
@@ -21,14 +21,14 @@
       </picker>
     </mp-cell>
     <mp-cell prop="leader" title="负责人">
-      <input data-field="leader" class="weui-input" placeholder="请输入负责人" bindinput="changeInput" />
+      <input data-field="leader" class="weui-input" placeholder="请输入负责人" value='{{formData.leader}}' bindinput="changeInput" />
     </mp-cell>
     <mp-cell prop="phone" title="手机号">
-      <input type="number" data-field="phone" class="weui-input" placeholder="请输入手机号" bindinput="changeInput" />
+      <input type="number" data-field="phone" class="weui-input" placeholder="请输入手机号" value='{{formData.phone}}' bindinput="changeInput" />
     </mp-cell>
     <mp-cell prop="email" title="邮箱">
-      <input data-field="email" class="weui-input" placeholder="请输入邮箱" bindinput="changeInput" />
+      <input data-field="email" class="weui-input" placeholder="请输入邮箱" value='{{formData.email}}'bindinput="changeInput" />
     </mp-cell>
   </mp-form>
-  <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+  <button class="weui-btn" type="primary" bindtap="submitForm">确定修改</button>
 </view>

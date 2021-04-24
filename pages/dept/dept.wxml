@@ -1,30 +1,33 @@
 <!--pages/wang/wang.wxml-->
 <view>
-<mp-searchbar placeholder='请输入部门名称' bindinput='search'></mp-searchbar>
-  <scroll-view id="scrollview" class="scroll-content" scroll-y refresher-enabled enhanced='{{true}}' lower-threshold='{{50}}' refresher-threshold='{{60}}' topNum="{{topNum}}"
-    refresher-triggered='{{isRefresh}}' bindscrolltolower='getMore' 
-    bindrefresherrefresh='refresh'
-    bindrefresherrestore='stopRefresh'>
-    <block wx:for="{{deptList}}" wx:key='deptId'>
-      <view class="wrapper">
-        <view class="left">
-          <text>{{index+1}}</text>
-        </view>
-        <view class="middle">
-          <view class="deptName">
-            部门名称：{{item.deptName}}
+  <mp-searchbar placeholder='请输入部门名称' bindinput='search'></mp-searchbar>
+  <scroll-view class="scroll-content" scroll-y refresher-enabled lower-threshold='{{50}}' refresher-threshold='{{60}}'
+    model:scroll-top="{{scrollTop}}" refresher-triggered='{{isRefresh}}' bindscrolltolower='getMore'
+    bindrefresherrefresh='refresh' bindrefresherrestore='stopRefresh'>
+
+      <view wx:for="{{deptList}}" wx:key='deptId'>
+      <mp-slideview buttons="{{slideButtons}}" data-deptid='{{item.deptId}}' catchbuttontap="deleteDept" >
+        <view class="wrapper" data-type='edit' data-deptid='{{item.deptId}}' data-info='{{item}}' bindtap="pageTo">
+          <view class="left-section">
+            <text>{{index+1}}</text>
           </view>
-          <view class="deptId">
-            部门Id：{{item.deptId}}
+          <view class="middle">
+            <view class="deptName">
+              部门名称：{{item.deptName}}
+            </view>
+            <view class="deptId">
+              部门Id：{{item.deptId}}
+            </view>
           </view>
         </view>
-      </view>
-    </block>
+      </mp-slideview>
+    </view>
+
     <view class="has-no-data" hidden="{{deptList.length===total}}">暂无更多数据</view>
   </scroll-view>
   <!-- 控制栏图标 -->
   <view class="controller">
-    <!-- <text catchtap="totop" class="fa fa-chevron-up"></text> -->
-    <text catchtap="addDept" class="fa fa-plus primary-color"></text>
+    <text catchtap="totop" class="fa fa-chevron-up primary-color"></text>
+    <text catchtap="pageTo" data-type="add" class="fa fa-plus primary-color"></text>
   </view>
 </view>

@@ -1,7 +1,9 @@
 {
   "component": true,
   "usingComponents": {
-    "mp-searchbar": "weui-miniprogram/searchbar/searchbar"
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
+    "mp-cell":"weui-miniprogram/cell/cell",
+    "mp-slideview": "weui-miniprogram/slideview/slideview"
   },
   "navigationBarTitleText": "查看部门"
 }

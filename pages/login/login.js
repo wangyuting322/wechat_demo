@@ -42,6 +42,7 @@ Page({
     }).catch(err => {
       wx.showToast({
         title: `登录失败！！${err.message}`,
+        icon:'error'
       })
       console.log(err);
     })

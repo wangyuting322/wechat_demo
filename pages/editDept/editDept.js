@@ -1,4 +1,4 @@
-// pages/addDept/addDept.js
+// pages/editDept/editDept.js
 import {
   request
 } from '../../utils/request.js'
@@ -12,6 +12,8 @@ Page({
     deptList: [],
     // 所有状态数据 - 下拉框选择项
     statusList: [],
+    // 当前的部门id
+    deptId: '0',
     // 表单关联数据
     formData: {
       deptName: "",
@@ -72,46 +74,56 @@ Page({
    * 获取所有部门列表（作为上级部门的可选项）
    */
   getDeptList() {
-    request({
-      url: '/system/dept/list',
-      data: {
-        current: 1,
-        size: 100000,
-      }
-    }).then(res => {
-      let deptList = res.data.records.map(item => {
-        return {
-          id: Number(item.deptId),
-          name: item.deptName
+    return new Promise((resolve, reject) => {
+      request({
+        url: '/system/dept/list',
+        data: {
+          current: 1,
+          size: 1000,
         }
+      }).then(res => {
+        let deptList = res.data.records.map(item => {
+          return {
+            id: Number(item.deptId),
+            name: item.deptName
+          }
+        })
+        deptList.unshift({
+          id: 0,
+          name: '主类目'
+        })
+        this.setData({
+          deptList,
+        })
+        resolve(deptList)
+      }).catch(err => {
+        console.log(err);
+        reject(err)
       })
-      deptList.unshift({
-        id: 0,
-        name: '主类目'
-      })
-      console.log(deptList);
-      this.setData({
-        deptList,
-      })
-    }).catch(err => {
-      console.log(err);
     })
+
   },
   /**
    * 获取所有状态
    */
   getStatusList() {
-    request({
-      url: "/system/dict/data/type/sys_normal_disable"
-    }).then(res => {
-      let statusList = res.data.map(item => {
-        return {
-          id: Number(item.dictValue),
-          name: item.dictLabel,
-        }
-      })
-      this.setData({
-        statusList,
+    return new Promise((resolve, reject) => {
+      request({
+        url: "/system/dict/data/type/sys_normal_disable"
+      }).then(res => {
+        let statusList = res.data.map(item => {
+          return {
+            id: Number(item.dictValue),
+            name: item.dictLabel,
+          }
+        })
+        this.setData({
+          statusList,
+        })
+        resolve(statusList)
+      }).catch(err => {
+        console.log(err);
+        reject(err)
       })
     })
   },
@@ -141,11 +153,9 @@ Page({
    * 提交
    */
   submitForm(e) {
-   // 显示加载中，含触摸蒙层
-   wx.showLoading({
-    title: '加载中',
-    mask: true,
-  })
+    wx.showToast({
+      icon: 'loading'
+    })
     this.selectComponent('#form').validate((valid, errors) => {
       if (!valid) {
         this.setData({
@@ -153,15 +163,17 @@ Page({
         })
       } else {
         let {
+          deptId,
           formData,
           deptList,
           statusList
         } = this.data
         request({
           url: '/system/dept',
-          method: 'POST',
+          method: 'PUT',
           data: {
             ...formData,
+            deptId,
             parentId: deptList[formData.parentId].id,
             status: statusList[formData.status].id,
           }
@@ -174,9 +186,8 @@ Page({
           console.error(err);
           wx.showToast({
             title: err.message,
-            mask:true,
             icon: 'none',
-            duration:2000
+            duration: 2000
           })
         })
       }
@@ -186,8 +197,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDeptList()
-    this.getStatusList()
+    // 显示加载中，含触摸蒙层
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+    // 等待部门和状态的下拉框数据获取
+    Promise.all([this.getDeptList(), this.getStatusList()]).then(res => {
+      console.log(res);
+      const eventChannel = this.getOpenerEventChannel()
+      // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+      eventChannel.on('acceptDeptInfo', ({
+        deptInfo
+      }) => {
+        let {
+          parentId,
+          status
+        } = {
+          ...deptInfo
+        }
+        let {
+          deptList,
+          statusList
+        } = {
+          ...this.data
+        }
+        this.setData({
+          formData: {
+            ...deptInfo,
+            parentId: deptList.findIndex(item => item.id == parentId),
+            status: statusList.findIndex(item => item.id == status),
+          }
+        })
+      })
+      this.setData({
+        deptId: options.deptId,
+      })
+      // 加载完成
+      wx.hideLoading()
+    }).catch(err => {
+      // 加载完成
+      wx.hideLoading()
+      wx.showToast({
+        title: '加载失败',
+        mask: true,
+        icon: 'none',
+        duration: 2000
+      })
+      console.log(err);
+    })
   },
 
   /**

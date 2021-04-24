@@ -31,6 +31,7 @@ export function request(requestData) {
         }
       },
       fail: (err) => {
+        console.log(err);
         reject(err)
       }
     })

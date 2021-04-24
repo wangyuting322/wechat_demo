@@ -8,11 +8,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 30rpx;
   padding: 10rpx;
 }
 
-.left {
+.left-section {
   flex-grow: 0;
   font-size: 24px;
   margin-right: 15rpx;
@@ -35,11 +34,6 @@
 .deptId {
   margin: 10rpx;
 }
-
-.right {
-  flex-grow: 0;
-}
-
 .controller {
   position: fixed;
   bottom: 5rpx;
