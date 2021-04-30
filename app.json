@@ -4,8 +4,20 @@
     "pages/login/login",
     "pages/dept/dept",
     "pages/addDept/addDept",
-    "pages/editDept/editDept"
+    "pages/editDept/editDept",
+    "pages/map/map"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+    "version": "1.0.12",
+    "provider": "wx50b5593e81dd937a"
+    }
+},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -29,6 +41,12 @@
       {
         "pagePath": "pages/login/login",
         "text": "登录",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
         "iconPath": "/static/images/tabs/tab-my.png",
         "selectedIconPath": "/static/images/tabs/tab-my-current.png"
       }
