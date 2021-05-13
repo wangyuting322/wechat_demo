@@ -1,4 +1,6 @@
 <!--pages/map/map.wxml-->
-<map class="map" latitude="{{currentLocation.latitude}}" longitude="{{currentLocation.longitude}}" setting="{{setting}}" markers="{{markers}}" bindtap="tapMap" ></map>
-<button catchtap="chooseLocation">点击选择位置</button>
-<button catchtap="gotoLocation">路线规划</button>
+<!-- 腾讯地图 -->
+<map class="map" latitude="{{currentLocation.latitude}}" longitude="{{currentLocation.longitude}}" setting="{{setting}}" markers="{{markers}}" bindtap="tapMap" >
+</map>
+  <button catchtap="chooseLocation">点击选择位置</button>
+  <button catchtap="gotoLocation">路线规划</button>

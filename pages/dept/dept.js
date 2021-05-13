@@ -147,6 +147,18 @@ Page({
     }, 500)
   },
   /**
+   * 清空搜索
+   */
+  clear(){
+    this.setData({
+      params: {
+        ...this.data.params,
+        deptName: '',
+      },
+    })
+    this.getDeptList()
+  },
+  /**
    * 添加部门
    */
   pageTo(e) {
@@ -188,8 +200,8 @@ Page({
       data: deptId,
     })
       .then((res) => {
-        this.refresh()
-        // this.totop()
+        // 重新获取数据
+        this.getDeptList()
         wx.showToast({
           title: "删除成功",
         })

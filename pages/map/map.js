@@ -61,7 +61,7 @@ Page({
         markers[0].longitude = res.longitude
         this.setData({
           currentLocation: {
-            ...res
+            ...res,
           },
           markers: markers,
         })
@@ -127,19 +127,19 @@ Page({
     })
   },
   /**
-   * 开启路线规划
+   * 开启路线规划 - 腾讯
    */
-  gotoLocation(){
+  gotoLocation() {
     let plugin = requirePlugin('routePlan');
-    let key = '5OXBZ-U5TWP-3VGDJ-LXBUV-FNYUO-MOF4N';  //使用在腾讯位置服务申请的key
-    let referer = 'wechat_demo';   //调用插件的app的名称
-    let endPoint = JSON.stringify({  //终点
-        // 'name': '请输入地址',
-        // 'latitude': 39.89631551,
-        // 'longitude': 116.323459711
+    let key = '5OXBZ-U5TWP-3VGDJ-LXBUV-FNYUO-MOF4N'; //使用在腾讯位置服务申请的key
+    let referer = 'wechat_demo'; //调用插件的app的名称
+    let endPoint = JSON.stringify({ //终点
+      // 'name': '请输入地址',
+      // 'latitude': 39.89631551,
+      // 'longitude': 116.323459711
     });
     wx.navigateTo({
-        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+      url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
     });
   },
   /**

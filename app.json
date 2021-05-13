@@ -5,7 +5,20 @@
     "pages/dept/dept",
     "pages/addDept/addDept",
     "pages/editDept/editDept",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/gaode/gaode",
+    "pages/weather/weather",
+    "pages/staticmap/staticmap",
+    "pages/regeo/regeo",
+    "pages/poi/poi",
+    "pages/navigation_car/navigation",
+    "pages/navigation_car_detail/navigation",
+    "pages/navigation_bus/navigation",
+    "pages/navigation_bus_detail/navigation",
+    "pages/navigation_ride/navigation",
+    "pages/navigation_ride_detail/navigation",
+    "pages/navigation_walk/navigation",
+    "pages/navigation_walk_detail/navigation"
   ],
   "permission": {
     "scope.userLocation": {
@@ -14,10 +27,10 @@
   },
   "plugins": {
     "routePlan": {
-    "version": "1.0.12",
-    "provider": "wx50b5593e81dd937a"
+      "version": "1.0.12",
+      "provider": "wx50b5593e81dd937a"
     }
-},
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -47,6 +60,12 @@
       {
         "pagePath": "pages/map/map",
         "text": "地图",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      },
+      {
+        "pagePath": "pages/gaode/gaode",
+        "text": "高德地图",
         "iconPath": "/static/images/tabs/tab-my.png",
         "selectedIconPath": "/static/images/tabs/tab-my-current.png"
       }

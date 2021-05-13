@@ -1,6 +1,6 @@
 <!--pages/wang/wang.wxml-->
 <view>
-  <mp-searchbar placeholder='请输入部门名称' bindinput='search'></mp-searchbar>
+  <mp-searchbar placeholder='请输入部门名称' bindinput='search' bindclear='clear' value="{{params.deptName}}"></mp-searchbar>
   <scroll-view class="scroll-content" scroll-y refresher-enabled lower-threshold='{{50}}' refresher-threshold='{{60}}'
     model:scroll-top="{{scrollTop}}" refresher-triggered='{{isRefresh}}' bindscrolltolower='getMore'
     bindrefresherrefresh='refresh' bindrefresherrestore='stopRefresh'>
