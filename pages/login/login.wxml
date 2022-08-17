@@ -7,4 +7,5 @@
 </view>
 
 <button bindtap="handleLogin">登录</button>
+<button bindtap="handleChoose">选择图片或视频</button>
 </view>

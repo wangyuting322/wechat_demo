@@ -38,24 +38,26 @@ Page({
       })
     }
   },
-  onReady(){
-console.log('onready');
+  onReady() {
+    console.log('onready');
+    // wx.authorize({scope:'scope.userLocation'})
+    // wx.authorize({scope: 'scope.userLocationBackground'})
   },
-  onShow(){
+  onShow() {
     console.log('onshow');
   },
-  onHide(){
+  onHide() {
     console.log('onhide');
   },
-  onUnload(){
-console.log('obunload');
+  onUnload() {
+    console.log('obunload');
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res,55)
+        console.log(res, 55)
         this.setData({
           userInfo: res.userInfo,
           // hasUserInfo: true
@@ -66,7 +68,7 @@ console.log('obunload');
   getUserInfo(e) {
     // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
     console.log(e)
-    if(e.detail.userInfo){
+    if (e.detail.userInfo) {
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true

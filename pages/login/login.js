@@ -42,9 +42,23 @@ Page({
     }).catch(err => {
       wx.showToast({
         title: `登录失败！！${err.message}`,
-        icon:'error'
+        icon: 'error'
       })
       console.log(err);
+    })
+  },
+  /**
+   * 选择图片
+   */
+  handleChoose() {
+    wx.chooseMedia({
+      mediaType: 'mix',
+      sourceType: ['album', 'camera'],
+      success(res) {
+        console.log(res);
+        // console.log(res.tempFiles.tempFilePath)
+        // console.log(res.tempFiles.size)
+      }
     })
   },
   handlePage() {

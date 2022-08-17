@@ -22,6 +22,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <!-- <view bindtap="getAuth">点击</view> -->
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> 

@@ -1,4 +1,5 @@
 // pages/map/map.js
+var config = require('../../libs/config.js');
 Page({
   /**
    * 页面的初始数据
@@ -127,11 +128,34 @@ Page({
     })
   },
   /**
+   * 逆解析
+   */
+  nijiexi(e) {
+    wx.getLocation({
+      type: 'gcj02',
+      //  type: 'wgs84',
+      success: (res) => {
+        let {
+          latitude,
+          longitude
+        } = res
+        let key=config.Config.txKey
+        wx.request({
+          // url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=QTABZ-ENBKI-6HGGF-5KNXZ-LG3YZ-IABGX`,
+          url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=${key}`,
+          success(res) {
+            console.log(res)
+          }
+        })
+      }
+    })
+  },
+  /**
    * 开启路线规划 - 腾讯
    */
   gotoLocation() {
     let plugin = requirePlugin('routePlan');
-    let key = '5OXBZ-U5TWP-3VGDJ-LXBUV-FNYUO-MOF4N'; //使用在腾讯位置服务申请的key
+    let key = 'S32BZ-VRGWU-VAKV3-BZYNI-YOGKO-LCF4Q'; //使用在腾讯位置服务申请的key
     let referer = 'wechat_demo'; //调用插件的app的名称
     let endPoint = JSON.stringify({ //终点
       // 'name': '请输入地址',

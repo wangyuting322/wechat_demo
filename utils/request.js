@@ -20,7 +20,8 @@ export function request(requestData) {
         'Authorization': `Bearer ${token}`,
       } : null,
       success: (res) => {
-        if (res.statusCode === 200) {
+        if (res.statusCode === 200 ) {
+          // 对象
           if (res.data.code === 200) {
             resolve(res.data)
           } else {

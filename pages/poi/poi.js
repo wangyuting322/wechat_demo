@@ -15,6 +15,31 @@ Page({
     that.showMarkerInfo(markersData,id);
     that.changeMarkerColor(markersData,id);
   },
+  nijiexi(e){
+    wx.getLocation({
+      type: 'gcj02',
+      success: function(res) {
+        console.log(res.latitude,res.longitude);
+        var that = this;
+        var key = config.Config.key;
+        var myAmapFun = new amapFile.AMapWX({key: key});
+    myAmapFun.getRegeo({
+      success: function(data){
+        //成功回调
+        console.log(data);
+      },
+      fail: function(info){
+        //失败回调
+        console.log(info)
+      }
+    })
+      },
+      fail: function(){
+     
+      }
+    })
+    
+  },
   onLoad: function(e) {
     var that = this;
     var key = config.Config.key;
