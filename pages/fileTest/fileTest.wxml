@@ -1,0 +1,3 @@
+<!--pages/fileTest/fileTest.wxml-->
+<text>pages/fileTest/fileTest.wxml</text>
+<upload-file files="{{files}}" bindchange="handleUpload"></upload-file>

@@ -18,7 +18,9 @@
     "pages/navigation_ride/navigation",
     "pages/navigation_ride_detail/navigation",
     "pages/navigation_walk/navigation",
-    "pages/navigation_walk_detail/navigation"
+    "pages/navigation_walk_detail/navigation",
+    "components/uploadFile/uploadFile",
+    "pages/fileTest/fileTest"
   ],
   "permission": {
     "scope.userLocation": {
@@ -45,6 +47,12 @@
   "tabBar": {
     "selectedColor": "#FA436A",
     "list": [
+      {
+        "pagePath": "pages/fileTest/fileTest",
+        "text": "测试",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      },
       {
         "pagePath": "pages/index/index",
         "text": "主页",

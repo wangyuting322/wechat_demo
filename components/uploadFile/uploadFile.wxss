@@ -1,0 +1,54 @@
+/* components/uploadFile/uploadFile.wxss */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 8px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.del-file {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.image-shrink {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 2px dotted grey;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.add-file {
+  width: 60px;
+  height: 60px;
+  border: 2px dotted grey;
+  border-radius: 5px;
+  color: gray;
+  text-align: center;
+}
+
+.add-file-icon {
+  font-size: 20px;
+}
+
+.add-file-text {
+  font-size: 12px;
+}
